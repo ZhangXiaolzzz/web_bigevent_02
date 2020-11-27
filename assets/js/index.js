@@ -1,5 +1,5 @@
 $(function () {
-    getUserInof()
+    getUserInfo()
 })
 
 // 退出
@@ -19,7 +19,7 @@ $('#btnLogout').on('click', function () {
 
 
 
-function getUserInof() {
+function getUserInfo() {
     $.ajax({
         url: "/my/userinfo",
         // headers:{
@@ -42,6 +42,7 @@ function getUserInof() {
 function renderAvatar(user) {
     var name = user.nickname || user.username
     $("#welcome").html("欢迎&nbsp;&nbsp;" + name)
+    // 渲染头像
     if (user.user_pic !== null) {
         $('.layui-nav-img').show().attr('src', user.user_pic)
         $('.text-avatar').hide()
